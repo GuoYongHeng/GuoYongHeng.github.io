@@ -5,9 +5,9 @@
   <subtitle>破破烂烂的小窝</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://guoyongheng.github.io/"/>
+  <link href="http://hiyongheng.cn/"/>
   <updated>2017-10-28T00:39:58.000Z</updated>
-  <id>https://guoyongheng.github.io/</id>
+  <id>http://hiyongheng.cn/</id>
   
   <author>
     <name>Yongheng</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://guoyongheng.github.io/2018/05/12/hello-world/"/>
-    <id>https://guoyongheng.github.io/2018/05/12/hello-world/</id>
+    <link href="http://hiyongheng.cn/2018/05/12/hello-world/"/>
+    <id>http://hiyongheng.cn/2018/05/12/hello-world/</id>
     <published>2018-05-12T01:40:43.406Z</published>
     <updated>2017-10-28T00:39:58.000Z</updated>
     

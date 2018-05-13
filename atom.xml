@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://guoyongheng.github.io/"/>
-  <updated>2018-05-13T15:34:33.460Z</updated>
+  <updated>2017-10-28T00:39:58.000Z</updated>
   <id>https://guoyongheng.github.io/</id>
   
   <author>
@@ -15,85 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test3</title>
-    <link href="https://guoyongheng.github.io/2018/05/13/test3/"/>
-    <id>https://guoyongheng.github.io/2018/05/13/test3/</id>
-    <published>2018-05-13T15:21:12.000Z</published>
-    <updated>2018-05-13T15:34:33.460Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="jiohuhuh"><a href="#jiohuhuh" class="headerlink" title="jiohuhuh"></a>jiohuhuh</h2><p>iwjeiorhuj</p><h2 id="ojiohuh"><a href="#ojiohuh" class="headerlink" title=";ojiohuh"></a>;ojiohuh</h2><h4 id="poji"><a href="#poji" class="headerlink" title="poji"></a>poji</h4><h4 id="opjiohiu"><a href="#opjiohiu" class="headerlink" title="opjiohiu"></a>opjiohiu</h4><h2 id="pkopjopjop"><a href="#pkopjopjop" class="headerlink" title="pkopjopjop"></a>pkopjopjop</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;jiohuhuh&quot;&gt;&lt;a href=&quot;#jiohuhuh&quot; class=&quot;headerlink&quot; title=&quot;jiohuhuh&quot;&gt;&lt;/a&gt;jiohuhuh&lt;/h2&gt;&lt;p&gt;iwjeiorhuj&lt;/p&gt;
-&lt;h2 id=&quot;ojiohuh&quot;&gt;&lt;a href=&quot;#ojio
-      
-    
-    </summary>
-    
-      <category term="test33333" scheme="https://guoyongheng.github.io/categories/test33333/"/>
-    
-    
-      <category term="test333" scheme="https://guoyongheng.github.io/tags/test333/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>text2</title>
-    <link href="https://guoyongheng.github.io/2018/05/13/text2/"/>
-    <id>https://guoyongheng.github.io/2018/05/13/text2/</id>
-    <published>2018-05-13T12:40:54.000Z</published>
-    <updated>2018-05-13T15:09:43.813Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="thaha"><a href="#thaha" class="headerlink" title="thaha"></a>thaha</h4><h3 id="haha"><a href="#haha" class="headerlink" title="haha"></a>haha</h3><h3 id="hahah"><a href="#hahah" class="headerlink" title="hahah"></a>hahah</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;thaha&quot;&gt;&lt;a href=&quot;#thaha&quot; class=&quot;headerlink&quot; title=&quot;thaha&quot;&gt;&lt;/a&gt;thaha&lt;/h4&gt;&lt;h3 id=&quot;haha&quot;&gt;&lt;a href=&quot;#haha&quot; class=&quot;headerlink&quot; title=&quot;haha&quot;
-      
-    
-    </summary>
-    
-      <category term="新目录" scheme="https://guoyongheng.github.io/categories/%E6%96%B0%E7%9B%AE%E5%BD%95/"/>
-    
-    
-      <category term="标签1" scheme="https://guoyongheng.github.io/tags/%E6%A0%87%E7%AD%BE1/"/>
-    
-      <category term="标签2" scheme="https://guoyongheng.github.io/tags/%E6%A0%87%E7%AD%BE2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="https://guoyongheng.github.io/2018/05/13/test/"/>
-    <id>https://guoyongheng.github.io/2018/05/13/test/</id>
-    <published>2018-05-13T11:16:51.000Z</published>
-    <updated>2018-05-13T11:38:15.052Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="this-is-title"><a href="#this-is-title" class="headerlink" title="this is title"></a>this is title</h4><p>this is content</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;this-is-title&quot;&gt;&lt;a href=&quot;#this-is-title&quot; class=&quot;headerlink&quot; title=&quot;this is title&quot;&gt;&lt;/a&gt;this is title&lt;/h4&gt;&lt;p&gt;this is content&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="AM" scheme="https://guoyongheng.github.io/categories/AM/"/>
-    
-    
-      <category term="默认" scheme="https://guoyongheng.github.io/tags/%E9%BB%98%E8%AE%A4/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>

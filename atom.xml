@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://guoyongheng.github.io/"/>
-  <updated>2018-05-13T11:18:23.135Z</updated>
+  <updated>2018-05-13T11:38:15.052Z</updated>
   <id>https://guoyongheng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://guoyongheng.github.io/2018/05/13/test/"/>
     <id>https://guoyongheng.github.io/2018/05/13/test/</id>
     <published>2018-05-13T11:16:51.000Z</published>
-    <updated>2018-05-13T11:18:23.135Z</updated>
+    <updated>2018-05-13T11:38:15.052Z</updated>
     
     <content type="html"><![CDATA[<h4 id="this-is-title"><a href="#this-is-title" class="headerlink" title="this is title"></a>this is title</h4><p>this is content</p>]]></content>
     
@@ -34,6 +34,8 @@
       
     
     </summary>
+    
+      <category term="AM" scheme="https://guoyongheng.github.io/categories/AM/"/>
     
     
       <category term="默认" scheme="https://guoyongheng.github.io/tags/%E9%BB%98%E8%AE%A4/"/>

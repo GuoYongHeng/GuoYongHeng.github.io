@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://guoyongheng.github.io/"/>
-  <updated>2018-11-11T15:02:20.749Z</updated>
+  <updated>2018-11-11T15:26:15.101Z</updated>
   <id>https://guoyongheng.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>蔡子经数据结构2.4</title>
+    <link href="https://guoyongheng.github.io/2018/11/11/%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%842-4/"/>
+    <id>https://guoyongheng.github.io/2018/11/11/蔡子经数据结构2-4/</id>
+    <published>2018-11-11T15:24:20.000Z</published>
+    <updated>2018-11-11T15:26:15.101Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100</span></span><br><span class="line"><span class="keyword">char</span> str[MAXN];</span><br><span class="line"><span class="keyword">int</span> flink[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">faillink</span><span class="params">(<span class="keyword">char</span> *p, <span class="keyword">int</span> *flink, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    flink[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">1</span>, k;</span><br><span class="line">    <span class="keyword">while</span>(j &lt; m)</span><br><span class="line">    &#123;</span><br><span class="line">        k = flink[j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">while</span>(k != <span class="number">-1</span> &amp;&amp; p[k] != p[j<span class="number">-1</span>])</span><br><span class="line">            k = flink[k];</span><br><span class="line">        flink[j] = k+<span class="number">1</span>;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,str);</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">    faillink(str, flink, len);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,flink[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;li
+      
+    
+    </summary>
+    
+      <category term="蔡子经数据结构第二章" scheme="https://guoyongheng.github.io/categories/%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%AC%E4%BA%8C%E7%AB%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>蔡子经数据结构2.1</title>
+    <link href="https://guoyongheng.github.io/2018/11/11/%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%842-1/"/>
+    <id>https://guoyongheng.github.io/2018/11/11/蔡子经数据结构2-1/</id>
+    <published>2018-11-11T15:23:44.000Z</published>
+    <updated>2018-11-11T15:25:36.266Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> max(a,b) (a&gt;b?a:b)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100</span></span><br><span class="line"><span class="keyword">char</span> str1[MAXN];</span><br><span class="line"><span class="keyword">char</span> str2[MAXN];</span><br><span class="line"><span class="keyword">int</span> dp[MAXN][MAXN];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));<span class="comment">//其实全局变量默认初始化为0</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s %s"</span>,str1, str2);</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(str1);</span><br><span class="line">    <span class="keyword">int</span> len2 = <span class="built_in">strlen</span>(str2);</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len2; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str1[i] == str2[j])</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i][j] + <span class="number">1</span>;</span><br><span class="line">            res = max(res, dp[i+<span class="number">1</span>][j+<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;li
+      
+    
+    </summary>
+    
+      <category term="蔡子经数据结构第二章" scheme="https://guoyongheng.github.io/categories/%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%AC%E4%BA%8C%E7%AB%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>蔡子经数据结构1.19</title>

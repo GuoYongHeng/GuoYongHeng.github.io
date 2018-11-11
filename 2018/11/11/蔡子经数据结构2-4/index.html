@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566#include &amp;lt;stdio.h&amp;gt;#define MAXN 100int stack[MAXN];int topl = 0;int topr">
+<meta name="description" content="123456789101112131415161718192021222324252627282930#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;#define MAXN 100char str[MAXN];int flink[MAXN];void faillink(char *p, int *flink, int m)&amp;#123;    fl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蔡子经数据结构1.8">
-<meta property="og:url" content="https://guoyongheng.github.io/2018/11/11/蔡子经数据结构1-8/index.html">
+<meta property="og:title" content="蔡子经数据结构2.4">
+<meta property="og:url" content="https://guoyongheng.github.io/2018/11/11/蔡子经数据结构2-4/index.html">
 <meta property="og:site_name" content="Yongheng">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566#include &amp;lt;stdio.h&amp;gt;#define MAXN 100int stack[MAXN];int topl = 0;int topr">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;#define MAXN 100char str[MAXN];int flink[MAXN];void faillink(char *p, int *flink, int m)&amp;#123;    fl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-11T15:09:42.489Z">
+<meta property="og:updated_time" content="2018-11-11T15:26:15.101Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蔡子经数据结构1.8">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566#include &amp;lt;stdio.h&amp;gt;#define MAXN 100int stack[MAXN];int topl = 0;int topr">
+<meta name="twitter:title" content="蔡子经数据结构2.4">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;#define MAXN 100char str[MAXN];int flink[MAXN];void faillink(char *p, int *flink, int m)&amp;#123;    fl">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://guoyongheng.github.io/2018/11/11/蔡子经数据结构1-8/"/>
+  <link rel="canonical" href="https://guoyongheng.github.io/2018/11/11/蔡子经数据结构2-4/"/>
 
 
 
 
 
-  <title>蔡子经数据结构1.8 | Yongheng</title>
+  <title>蔡子经数据结构2.4 | Yongheng</title>
   
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://guoyongheng.github.io/2018/11/11/蔡子经数据结构1-8/">
+    <link itemprop="mainEntityOfPage" href="https://guoyongheng.github.io/2018/11/11/蔡子经数据结构2-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yongheng">
@@ -315,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">蔡子经数据结构1.8</h1>
+          <h1 class="post-title" itemprop="name headline">蔡子经数据结构2.4</h1>
         
 
         <div class="post-meta">
@@ -327,7 +327,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-11T22:56:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-11T23:24:20+08:00">
                 2018-11-11
               </time>
             
@@ -350,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/蔡子经数据结构第一章/" itemprop="url" rel="index">
-                    <span itemprop="name">蔡子经数据结构第一章</span>
+                  <a href="/categories/蔡子经数据结构第二章/" itemprop="url" rel="index">
+                    <span itemprop="name">蔡子经数据结构第二章</span>
                   </a>
                 </span>
 
@@ -387,7 +387,7 @@
       
 
       
-        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="built_in">stack</span>[MAXN];</span><br><span class="line"><span class="keyword">int</span> topl = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> topr = MAXN<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(topr &lt; topl)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"overflowed"</span>);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)<span class="comment">//左边入栈</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">stack</span>[topl++] = x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">//右边入栈</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">stack</span>[topr--] = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pop</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)<span class="comment">//左边出栈</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(topl == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"empty"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">stack</span>[--topl];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">//右边</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(topr == MAXN<span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"empty"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">stack</span>[++topr];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,x;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>)<span class="comment">//表示入栈</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;x);</span><br><span class="line">            push(n, x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span><span class="comment">//否则就是出栈</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,pop(n));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100</span></span><br><span class="line"><span class="keyword">char</span> str[MAXN];</span><br><span class="line"><span class="keyword">int</span> flink[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">faillink</span><span class="params">(<span class="keyword">char</span> *p, <span class="keyword">int</span> *flink, <span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    flink[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">1</span>, k;</span><br><span class="line">    <span class="keyword">while</span>(j &lt; m)</span><br><span class="line">    &#123;</span><br><span class="line">        k = flink[j<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">while</span>(k != <span class="number">-1</span> &amp;&amp; p[k] != p[j<span class="number">-1</span>])</span><br><span class="line">            k = flink[k];</span><br><span class="line">        flink[j] = k+<span class="number">1</span>;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,str);</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">    faillink(str, flink, len);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,flink[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -412,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/11/蔡子经数据结构1-7/" rel="next" title="蔡子经数据结构1.7">
-                <i class="fa fa-chevron-left"></i> 蔡子经数据结构1.7
+              <a href="/2018/11/11/蔡子经数据结构2-1/" rel="next" title="蔡子经数据结构2.1">
+                <i class="fa fa-chevron-left"></i> 蔡子经数据结构2.1
               </a>
             
           </div>
@@ -421,10 +421,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/11/蔡子经数据结构1-11/" rel="prev" title="蔡子经数据结构1.11">
-                蔡子经数据结构1.11 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

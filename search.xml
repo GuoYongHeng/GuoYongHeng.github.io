@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[蔡子经数据结构1.19]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-19%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;//void print(node *head)&#123; node *p = head-&gt;next; while(p != head) &#123; printf("%d ",p-&gt;val); p = p-&gt;next; &#125; puts(""); return ;&#125;node *modify(node *p)&#123; node *head = createNode(); head-&gt;next = p; node *temp = head; int cnt = 0; while(temp-&gt;next) &#123; ++cnt; temp = temp-&gt;next; &#125; temp-&gt;next = head; head-&gt;val = cnt; return head;&#125;int main()&#123; node *p = NULL, *rec = NULL; for(int i = 0; i &lt; 10; ++i) &#123; if(p == NULL) &#123; p = createNode(); p-&gt;val = i+1; rec = p; &#125; else &#123; p-&gt;next = createNode(); p = p-&gt;next; p-&gt;val = i+1; &#125; &#125; p = rec; node *head = modify(p); print(head); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.17]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-17%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;void print(node *head)&#123; node *p = head-&gt;next; while(p != head) &#123; printf("%d ",p-&gt;val); p = p-&gt;next; &#125; puts(""); return ;&#125;int main()&#123; int n,i,k; scanf("%d %d %d",&amp;n,&amp;i,&amp;k); node *head = createNode(); head-&gt;next = head; for(int i = n; i &gt;= 1; --i) &#123; node *p = createNode(); p-&gt;val = i; p-&gt;next = head-&gt;next; head-&gt;next = p; &#125; print(head); int cnt = 1; node *pre = head; while(cnt != i) &#123; ++cnt; pre = pre-&gt;next; &#125; node *p = pre-&gt;next; cnt = 0; while(pre != p) &#123; while(pre != p) &#123; if(p-&gt;val != 0) ++cnt; if(cnt == k) break; pre = pre-&gt;next; p = p-&gt;next; &#125; pre-&gt;next = p-&gt;next; printf("%d ",p-&gt;val); cnt = 0; free(p); p = pre-&gt;next; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.16]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-16%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;//创建节点node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;//创建s+1到n的循环链表node* createLink(int s, int n)&#123; node *head = createNode(); head-&gt;next = head; for(int i = s; i &lt; n; ++i) &#123; node *p = createNode(); p-&gt;val = n - (i-s); p-&gt;next = head-&gt;next; head-&gt;next = p; &#125; return head;&#125;//打印循环链表void print(node *head)&#123; node *p = head-&gt;next; while(p != head) &#123; printf("%d ",p-&gt;val); p = p-&gt;next; &#125; puts(""); return ;&#125;node *merge(node *x, node *y)&#123; node *ex = x; x = x-&gt;next; node *ey = y; y = y-&gt;next; node *head = createNode(); node *ph = head; while(x != ex &amp;&amp; y != ey) &#123; if(x-&gt;val &lt; y-&gt;val) &#123; ph-&gt;next = x; x = x-&gt;next; &#125; else &#123; ph-&gt;next = y; y = y-&gt;next; &#125; ph = ph-&gt;next; &#125; while(x != ex) &#123; ph-&gt;next = x; x = x-&gt;next; ph = ph-&gt;next; &#125; while(y != ey) &#123; ph-&gt;next = y; y = y-&gt;next; ph = ph-&gt;next; &#125; free(ex); free(ey); ph-&gt;next = head; return head;&#125;int main()&#123; node *x = createLink(2,13); node *y = createLink(7,9); print(x); print(y); node *head = merge(x, y); print(head);&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.15]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-15%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;node* createLink(int n)&#123; node *head = createNode(); for(int i = 0; i &lt; n; ++i) &#123; node *p = createNode(); p-&gt;val = rand()%100; p-&gt;next = head-&gt;next; head-&gt;next = p; &#125; return head;&#125;node* merge(node *x, node *y)&#123; node *head = createNode(); node *px = x-&gt;next; free(x); node *py = y-&gt;next; free(y); node *ph = head; while(px &amp;&amp; py) &#123; node *tx = px; px = px-&gt;next; node *ty = py; py = py-&gt;next; tx-&gt;next = ty; ty-&gt;next = NULL; ph-&gt;next = tx; ph = ty; &#125; if(px) ph-&gt;next = px; if(py) ph-&gt;next = py; return head;&#125;void print(node *p)&#123; p = p-&gt;next; while(p) &#123; printf("%d ",p-&gt;val); p = p-&gt;next; &#125; puts(""); return ;&#125;int main()&#123; srand(time(NULL)); node *x = createLink(5); print(x); node *y = createLink(6); print(y); node *head = merge(x, y); print(head); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.14]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-14%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;void del(node *head, int a)//删除a的前驱节点，如果a是第一个节点，则啥都不干&#123; if(head-&gt;next-&gt;val == a) return; node *pre = head; node *p = head-&gt;next; while(p-&gt;next) &#123; if(p-&gt;next-&gt;val == a) &#123; pre-&gt;next = p-&gt;next; free(p); return ; &#125; p = p-&gt;next; pre = pre-&gt;next; &#125; return ;&#125;int main()&#123; node *head = createNode(); node *tail = head; for(int i = 0; i &lt; 10; ++i) &#123; node *p = createNode(); p-&gt;val = i+1; tail-&gt;next = p; tail = tail-&gt;next; &#125; del(head, 2); node *p = head-&gt;next; while(p) &#123; printf("%d ",p-&gt;val); p = p-&gt;next; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.13]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-13%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;void insert(node *head, int a, int b)//把a插入在b的前面，如果b不存在，就插在最后&#123; node *pre = head; node *p = head-&gt;next; while(p) &#123; if(p-&gt;val == b) &#123; node *q = createNode(); q-&gt;val = a; q-&gt;next = p; pre-&gt;next = q; return; &#125; pre = pre-&gt;next; p = p-&gt;next; &#125; node *q = createNode(); q-&gt;val = a; pre-&gt;next = q; return;&#125;int main()&#123; node *head = createNode(); node *tail = head; for(int i = 0; i &lt; 10; ++i) &#123; node *p = createNode(); p-&gt;val = i+1; tail-&gt;next = p; tail = tail-&gt;next; &#125; insert(head, 11, 5);//5前边插入11 insert(head, 20,33);//33前边插入20 node *p = head-&gt;next; while(p) &#123; printf("%d ",p-&gt;val); p = p-&gt;next; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.12]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-12%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;void reverse(node *head)&#123; node *p = head-&gt;next; head-&gt;next = NULL; while(p) &#123; node *q = p; p = p-&gt;next; q-&gt;next = head-&gt;next; head-&gt;next = q; &#125;&#125;int main()&#123; node *head = createNode(); node *tail = head; for(int i = 0; i &lt; 10; ++i) &#123; node *p = createNode(); p-&gt;val = i+1; tail-&gt;next = p; tail = tail-&gt;next; &#125; reverse(head); node *p = head-&gt;next; while(p) &#123; printf("%d ",p-&gt;val); p = p-&gt;next; &#125; puts(""); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.11]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-11%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int val; struct node* next;&#125; node;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;val = 0; ret-&gt;next = NULL; return ret;&#125;int main()&#123; node *head = createNode(); node *tail = head; for(int i = 0; i &lt; 10; ++i) &#123; node *p = createNode(); p-&gt;val = i+1; tail-&gt;next = p; tail = tail-&gt;next; &#125; node *p = head-&gt;next; int cnt = 0; while(p) p = p-&gt;next, ++cnt; printf("%d\n",cnt); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.8]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-8%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566#include &lt;stdio.h&gt;#define MAXN 100int stack[MAXN];int topl = 0;int topr = MAXN-1;void push(int n, int x)&#123; if(topr &lt; topl) &#123; puts("overflowed"); return ; &#125; if(n == 1)//左边入栈 &#123; stack[topl++] = x; &#125; else//右边入栈 &#123; stack[topr--] = x; &#125;&#125;int pop(int n)&#123; if(n == 1)//左边出栈 &#123; if(topl == 0) &#123; puts("empty"); return -1; &#125; return stack[--topl]; &#125; else//右边 &#123; if(topr == MAXN-1) &#123; puts("empty"); return -1; &#125; return stack[++topr]; &#125;&#125;int main()&#123; int n,x; while(scanf("%d",&amp;n) != EOF) &#123; if(n == 1)//表示入栈 &#123; scanf("%d %d",&amp;n,&amp;x); push(n, x); &#125; else//否则就是出栈 &#123; scanf("%d",&amp;n); printf("%d\n",pop(n)); &#125; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.7]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-7%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263#include &lt;stdio.h&gt;#define MAXN 100int Stack[MAXN];int top;int n;//车厢个数int que[MAXN];//存储车厢int res[MAXN];//我入栈的时候没有检测栈是否满了//出栈的时候也没有检测栈是否为空void initStack()&#123; top = 0;&#125;void Push(int x)&#123; Stack[top++] = x;&#125;int Pop()&#123; return Stack[--top];&#125;int IsEmpty()&#123; return top == 0;&#125;//1表示入栈，0表示出栈void dfs(int ptr, int lim)&#123; if(ptr == n &amp;&amp; IsEmpty()) &#123; for(int i = 0; i &lt; lim; ++i) printf("%d ",res[i]); puts(""); return ; &#125; if(ptr &lt; n)//如果车队还有车，就入栈 &#123; Push(que[ptr]); dfs(ptr+1, lim); Pop(); &#125; if(!IsEmpty())//如果栈不空，就出栈 &#123; res[lim] = Pop(); dfs(ptr, lim+1); Push(res[lim]); &#125;&#125;int main()&#123; initStack(); scanf("%d",&amp;n); for(int i = 0; i &lt; n; ++i) scanf("%d",&amp;que[i]); dfs(0, 0);//1表示入栈操作 return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.6]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-6%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233#include &lt;stdio.h&gt;#define MAXN 100int flag[MAXN];int res[MAXN];int top = 0;int main()&#123; int n,i,k; scanf("%d %d %d",&amp;n,&amp;i,&amp;k); for(int i = 1; i &lt;= n; ++i) flag[i] = 1; int all = n; int cnt = 0; while(all) &#123; while(cnt != k) &#123; if(flag[i]) ++cnt; ++i; if(i == n+1) i = 1; &#125; cnt = 0; --all; if(i == 1) flag[n] = 0, res[top++] = n; else flag[i-1] = 0, res[top++] = i-1; &#125; for(int i = 0; i &lt; top; ++i) printf("%d ",res[i]); puts(""); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.4]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-4%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546//这个程序假设x会输入成1x^1 这样可以简化处理，不然处理起来就麻烦了，宿舍太乱，不想写麻烦#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;ctype.h&gt;#define MAXN 100int exp[MAXN];int num[MAXN];int top = 0;char str[MAXN];//假设所有输入合法int pow(int a, int b)&#123; int ret = 1; while(b) &#123; if(b&amp;1) ret = ret*a; a = a*a; b &gt;&gt;= 1; &#125; return ret;&#125;int main()&#123; scanf("%s",str); int len = strlen(str); char *p = str; while(*p) &#123; num[top] = atoi(p); while(*p++ != '^'); exp[top++] = atoi(p); while(isdigit(*p)) p++; while(!isdigit(*p) &amp;&amp; (*p) != '\0') p++; &#125; int x0; scanf("%d",&amp;x0); int sum = 0; for(int i = 0; i &lt; top; ++i) sum += num[i]*pow(x0, exp[i]); printf("%d\n",sum); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.3]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-3%2F</url>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435#include &lt;stdio.h&gt;int comp(const void *a, const void *b)&#123; return *(int*)a - *(int*)b;&#125;void print(int *a, int n)&#123; for(int i = 0; i &lt; n; ++i) printf("%d ",a[i]); puts("");&#125;int unique(int *a, int n)&#123; int ret = 1; for(int i = 1; i &lt; n; ++i) if(a[i] != a[i-1]) a[ret++] = a[i]; return ret;&#125;int main()&#123; int a[10] = &#123;1,1,3,4,4,5,4,3,1,1&#125;; print(a, 10); qsort(a,10,sizeof(a[0]),comp); print(a, 10); int n = unique(a, 10); print(a, n); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.2]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-2%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728#include &lt;stdio.h&gt;void overturn(int *a, int n)&#123; int temp; for(int i = 0; i &lt; n/2; ++i) &#123; temp = a[i]; a[i] = a[n-i-1]; a[n-i-1] = temp; &#125;&#125;void print(int *a, int n)&#123; for(int i = 0; i &lt; n; ++i) printf("%d ",a[i]); puts("");&#125;int main()&#123; int a[10] = &#123;0,1,2,3,4,5,6,7,8,9&#125;; print(a, 10); overturn(a, 10); print(a, 10); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蔡子经数据结构1.1]]></title>
+    <url>%2F2018%2F11%2F11%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%841-1%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930#include &lt;stdio.h&gt;int sgn(int x)&#123; if(x &gt; 0) return 1; if(x &lt; 0) return -1; return 0;&#125;int cmp(int *a, int *b , int n, int m)&#123; int i = 0, j = 0; while(i &lt; n &amp;&amp; j &lt; m) &#123; if(a[i] != b[j]) return sgn(a[i]-b[j]); ++i,++j; &#125; if(i == n &amp;&amp; j == m) return 0; if(i == n) return -1; return 1;&#125;int main()&#123; int a[10] = &#123;0,1,4,7,8,5,2,3,6,9&#125;; int b[5] = &#123;0,1,4,7,8&#125;; int res = cmp(a, b, 10, 5); printf("%d\n",res); return 0;&#125;]]></content>
+      <categories>
+        <category>蔡子经数据结构第一章</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[蒟蒻的acm经历]]></title>
+    <url>%2F2018%2F05%2F29%2F%E8%92%9F%E8%92%BB%E7%9A%84acm%E7%BB%8F%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[虽然是个弱渣，但也想写写自己的acm经历。 初次接触编程是在初二的时候，学了段时间易语言，当时非常向往成为一名黑客，便决心大学要学计算机。就这样，高考的时候志愿填了软件工程。 大一的时候，听到学长说起过学校的acm实验室，后来也在学校的oj上看到了acm实验室纳新的信息，便报名了，当时也是害怕自己进不去实验室，就会经常刷一些基础的数据结构的题目。当时比较后悔的一件事情就是拿《算法之道》这本书作为入门书，新人表示完全看不懂。幸好后来发现了《啊哈算法》，就跟着这本书学习了基础的数据结构。在大一的时候，实验室有一个选拔，我因为一些个人的事情，没去。所以一直到大二，我才算正式进入学校的acm实验室。 参加第一个比赛是在大二，比赛是浙大陈越姥发起的那个天梯赛，比较水，学校就派了两个队，我所在的队是华东赛区团队三等奖，另一个队优秀奖。。令人比较吃惊的就是这个比赛在给学校算成绩的时候竟然是算一所学校的所有队伍的总分，这个就比较扯淡了。。。两个队的跟四个队的根本没法比，虽然我们根本可能就凑不出来四个队。。。 参加的第二场比赛是蓝桥杯的省赛，拿了个省二，伤心了几天，我的俩队友也是一一个省二，一个省三。 终于到参加acm省赛了，在青岛科技大学，当时结果是铜牌线下第一名，当时真是特别受打击，线下第一，做了三道题，按照题目难度来说，出四道题是没问题的，只是有一道题，到最后也没看懂什么意思，太坑了。我总觉得如果不是青岛科技大学把题目印错了，我队伍也不会有那么多罚时，三道题也足够拿个铜了。但是有个题印错了一个数，导致我队那题错了好多遍，罚时太多，当时真是太气了，连题目都印错了。虽说后来改正了，但是你咋不早说。 第一次省赛过后，真的是打击太大了，感觉都有点抑郁了，很压抑，当然仅仅是省赛不会造成这么大影响，还有些别的无关计算机的东西。我的两个队友，z同学是当时刚入门没多久的新手，t同学是比我早半年多进入实验室的老手，我在他俩之间。老实说，t同学确实是个话痨，爱打游戏王和王者荣耀（其实后来我也迷上了王者荣耀，好在后来戒掉了），我和t同学在实验室的机位挨着，因为比赛结果影响，我当时基本就像是在监视他，只要我在电脑前，你就别想玩游戏，感觉这样有点过分了啊。后来发现这样也没啥用，他有点话痨，他和我说话我还得回他，我偶尔也会控制不住和他说话，所以后来我就搬走了，坐在了一堆学弟中间，谁也不理我，我也不理谁。 过了几个月，大三了，也到了打争夺区域赛名额的网络赛的时候了，这时候大三一共还有三个队伍。我队伍表现最好的一次是新疆的那场网络赛，但是名次还是太低。幸运的是实验室的qianqian大佬拿到一个北京和一个青岛的名额，加上老师在青岛申请的一个名额和学长在省赛中表现好而分给的一个西安的名额，共四个区域赛名额。网络赛一共有七次，对应七个赛区，我队是综合表现最差的一队，理所当然的没有资格参加区域赛。当时是另外两个队伍重组了一个队去西安，结果打铁，不是太好。然后那两个队伍各自去青岛，拿到两块铜牌，还算可以。不过那年青岛的题也是真毒，三题从金牌卡到铜牌。。当时北京的名额出来的比较晚，而且也有点出乎大家的意料，由于每个人的参赛次数有限制，所以又要重新组一个队去北京参赛，于是老师又从三个大三的队伍中各抽一个人组队去北京，我比较幸运，我队伍里是我去参赛。北京的题比青岛要好点，三题银到铜。当时我队就做了俩签到题，挂机到结束，水到个手速铜牌，名次好像是七十多名，不得不说x姐（其实他是男的）手速还是很快的。当时有有一道区间dp的题，我也做过类似的题，但是那题多了一个条件，死活没做出来，不得不说还是太菜。 拿到这个铜牌后，真的感觉就是花光了整个大学期间所有的运气才换来这一个铜牌，因为在这两年左右的时间内，我失去的那个东西，让我太痛苦了。 很快又大三下了，还有一场acm省赛，好像是五月六号比的，也可能是七号。。。这次省赛我的队伍又有变动了，因为有一个队伍的一个同学准备考研，就退出了，我队伍的z同学便去了那个队伍，主要还是他觉得在我这个队伍没啥希望，老实说我也是这样觉得。如果有机会跳出这个队伍的话，我也会选择去别的队伍。但是毕竟t同学还没拿牌，也不能就这样丢下他啊。z同学走后，来了一个刚考完研的学长和我俩组队参加了省赛。省赛拿银，很高兴学弟拿到了金牌。老实说这次省赛锅也挺多的，据说有一个题数据没传上去，提交的程序只要不输出东西就能ac，还有一个题，标程的时间复杂度是O(n)，结果数据只能卡住O(nlogn)的程序，卡不住O(n^2)的程序，我队就被卡在这里了。别的题数据也有不少锅，总之搞的很多人都不大高兴。不过我倒是无所谓，反正不管你数据水不水，高手都是卡不住的，我们这些菜鸡互嘬，也没啥意义。 省赛之前还有一个蓝桥杯的省赛，这次拿到了省一，而且还是全省第四，虽然是b组的，不过运气还算可以。不过前两天的蓝桥国赛就被人踩爆了，拿个国二，结束后才发现我的那个暴力写的好丑啊，为什么要这样写呢？？？比较出乎意料的是蓝桥竟然出了莫比乌斯反演的题目，wtf？半年多没碰数论了，不会，暴力拿点分就行了。 记得在大二训练的时候，t同学不愿学数学，我就负责了数学，开始看组合数学的时候，看的是冯速老师翻译的那本，看的模棱两可的，感觉太难，看到后边就不再看了，就又看起来初等数论，这个还好，看起来还挺好懂，但是题也太难了，而且定理太多，记不住，看到后来，也是又不看了，还有一个原因是时间不够，就想一口吃个大胖子，但是事实证明，吃不进去啊。现在想想，当时训练的也是够乱的，菜也是活该。后来发现比赛中的数论题或者组合数学题，一般就算我学了我也做不出来，所以就不做数学了，改去做别的类型的题了，大三上在hackerrank上刷了小半年的algorithm那个面板的archive，主要就是dp，思维题，模拟，图，树之类的。感觉题也做了不少，就是独立思考的太少了。 参加acm这两年过的还是很充实的，学到了很多，也失去了很多，不过我总感觉得不偿失，还是很后悔当初付出的努力不够，大二玩王者玩的有点多，训练时还偶尔走走神，浪费了太多时间，还总是在自我安慰。退役了，安心准备考研吧。]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[洛谷 P1486[NOI2004]郁闷的出纳员]]></title>
     <url>%2F2018%2F05%2F21%2F%E6%B4%9B%E8%B0%B7%20P1486%5BNOI2004%5D%E9%83%81%E9%97%B7%E7%9A%84%E5%87%BA%E7%BA%B3%E5%91%98%2F</url>
     <content type="text"><![CDATA[题目https://www.luogu.org/problemnew/show/P1486 题意写一个工资统计程序，实现对每个员工工资的增加和扣除，对员工的雇佣和解雇，查询工资第k多的人 题解这是第二次写这个题，第一次在这里不知道该怎么操作，想打标记也不好打，就看了题解，这次再写就会了。增加一个der变量，用来维护所有人工资的变化量，对于A操作，der+=k，对于S操作，der-=k，对于I操作，把员工工资插入splay的时候要减掉der。这样der就是所有员工工资的变化量了。然后就是普通的查询。写的时候我是把第k大的工资转换成了第k2小的工资来查询的，错了一组数据，我对比了下发现有一个查询出错了，不知道为啥，就改成了直接查询第k大的，就过了。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148#include &lt;stdio.h&gt;const int MAXN = 2e5+10;const int INF = 1e9;struct node&#123; int ch[2]; int val,cnt,sz,ff;&#125;;node t[MAXN];int root,tot,sum,min,n;void pushUp(int x)&#123; t[x].sz = t[t[x].ch[0]].sz + t[t[x].ch[1]].sz + t[x].cnt;&#125;void Rotate(int x)&#123; int y = t[x].ff; int z = t[y].ff; int k = (t[y].ch[1] == x); t[z].ch[t[z].ch[1]==y] = x; t[x].ff = z; t[y].ch[k] = t[x].ch[k^1]; t[t[x].ch[k^1]].ff = y; t[x].ch[k^1] = y; t[y].ff = x; pushUp(y); pushUp(x);&#125;void Splay(int x, int goal)&#123; while(t[x].ff != goal) &#123; int y = t[x].ff; int z = t[y].ff; if(z != goal) (t[z].ch[0]==y)^(t[y].ch[0]==x)?Rotate(x):Rotate(y); Rotate(x); &#125; if(goal == 0) root = x;&#125;void Find(int x)&#123; int u = root; if(!u) return; while(t[u].ch[x &gt; t[u].val] &amp;&amp; x != t[u].val) u = t[u].ch[x &gt; t[u].val]; Splay(u, 0);&#125;void Insert(int x)&#123; int u = root, ff = 0; while(u &amp;&amp; t[u].val != x) &#123; ff = u; u = t[u].ch[x &gt; t[u].val]; &#125; if(u) t[u].cnt++; else &#123; u = ++tot; if(ff) t[ff].ch[x &gt; t[ff].val] = u; t[u].ch[0] = t[u].ch[1] = 0; t[u].ff = ff; t[u].val = x; t[u].cnt = t[u].sz = 1; &#125; Splay(u, 0);&#125;int Next(int x, int f)&#123; Find(x); int u = root; if(t[u].val&gt;x &amp;&amp; f) return u; if(t[u].val&lt;x &amp;&amp; !f) return u; u = t[u].ch[f]; while(t[u].ch[f^1]) u = t[u].ch[f^1]; return u;&#125;void Delete(int x)&#123; int next = Next(x, 1); Find(-INF); Splay(next, root); sum += t[t[next].ch[0]].sz; t[next].ch[0] = 0; pushUp(next); pushUp(root);&#125;int KTh(int k)&#123; int u = root; while(true) &#123; if(t[t[u].ch[1]].sz &gt;= k) u = t[u].ch[1]; else if(k &gt; t[t[u].ch[1]].sz+t[u].cnt) &#123; k -= (t[t[u].ch[1]].sz+t[u].cnt); u = t[u].ch[0]; &#125; else return t[u].val; &#125;&#125;int main()&#123; scanf("%d %d",&amp;n,&amp;min); Insert(-INF); Insert(INF); int der = 0,k; char ch; while(n--) &#123; scanf(" %c %d",&amp;ch,&amp;k); if(ch == 'I') &#123; if(k &lt; min) continue; else Insert(k-der); &#125; else if(ch == 'A') &#123; der += k; &#125; else if(ch == 'S') &#123; der -= k; Delete(min-der-1); &#125; else &#123; if(k &gt; t[root].sz-2) puts("-1"); else printf("%d\n",KTh(k+1)+der); &#125; &#125; printf("%d\n",sum); return 0;&#125;]]></content>

@@ -69,7 +69,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-11%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int ltag; char data; int rtag;&#125; node;#define MAXN 8node a[MAXN] =&#123; &#123;0,'A',0&#125;, &#123;1,'B',0&#125;, &#123;0,'D',1&#125;, &#123;1,'F',1&#125;, &#123;0,'C',1&#125;, &#123;0,'E',1&#125;, &#123;1,'G',0&#125;, &#123;1,'H',1&#125;&#125;;int idx = 0;int findPar(int par, char aim)&#123; int cur = idx; idx++; if(a[cur].data == aim) return par; int ret = -1; if(a[cur].ltag == 0) ret = findPar(cur, aim); if(ret != -1) return ret; if(a[cur].rtag == 0) ret = findPar(cur, aim); return ret;&#125;int main()&#123; int res = findPar(-1, 'D'); if(res == -1) puts("not found"); else printf("%c\n",a[res].data); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -77,7 +77,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-10%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;stdlib.h&gt;typedef struct node&#123; int ltag; char data; int rchild;&#125; node;#define MAXN 8node a[MAXN] =&#123; &#123;0,'A',4&#125;, &#123;1,'B',2&#125;, &#123;0,'D',-1&#125;, &#123;1,'F',-1&#125;, &#123;0,'C',-1&#125;, &#123;0,'E',-1&#125;, &#123;1,'G',7&#125;, &#123;1,'H',-1&#125;&#125;;typedef struct TreeNode&#123; char data; struct TreeNode *lchild, *rchild;&#125; TNode;TNode* createNode()&#123; TNode *ret = (TNode*)malloc(sizeof(TNode)); ret-&gt;lchild = ret-&gt;rchild = NULL; return ret;&#125;//这个题目要求的功能就在这个函数实现的TNode* createTree(int cur)&#123; TNode *ret = createNode(); ret-&gt;data = a[cur].data; if(a[cur].ltag == 0) ret-&gt;lchild = createTree(cur+1); if(a[cur].rchild != -1) ret-&gt;rchild = createTree(a[cur].rchild); return ret;&#125;void MidOrder(TNode *rt)&#123; if(rt == NULL) return; MidOrder(rt-&gt;lchild); putchar(rt-&gt;data); MidOrder(rt-&gt;rchild);&#125;int main()&#123; TNode *root = createTree(0); MidOrder(root); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -85,7 +85,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-9%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node node;struct node&#123; int val,mark; node *lchild,*rchild;&#125;;#define MAXN 100node* createNodeWithVal(int val)&#123; node *rt = (node*)malloc(sizeof(node)); rt-&gt;lchild = rt-&gt;rchild = NULL; rt-&gt;val = val; rt-&gt;mark = 0; return rt;&#125;/* 4 2 61 3 5 7*/node* createTree()&#123; node *rt = createNodeWithVal(4); rt-&gt;lchild = createNodeWithVal(2); rt-&gt;rchild = createNodeWithVal(6); rt-&gt;lchild-&gt;lchild = createNodeWithVal(1); rt-&gt;lchild-&gt;rchild = createNodeWithVal(3); rt-&gt;rchild-&gt;lchild = createNodeWithVal(5); rt-&gt;rchild-&gt;rchild = createNodeWithVal(7); return rt;&#125;//判断两棵树是否一样int flag = 1;//falg = 1表示俩树一样，否则，俩树不一样void Judge(node *rt1, node *rt2)&#123; if(rt1 == NULL &amp;&amp; rt2 == NULL) return ; //现在就是俩全都不为空，有一个为空的情况 if((rt1 == NULL &amp;&amp; rt2 != NULL) || (rt1 != NULL &amp;&amp; rt2 == NULL))//说明一个为空，一个不为空，即树的形态不一样 &#123; flag = 0; return ; &#125; Judge(rt1-&gt;lchild, rt2-&gt;lchild); Judge(rt1-&gt;rchild, rt2-&gt;rchild);&#125;int main()&#123; node *rt1 = createTree(); node *rt2 = createTree(); rt2-&gt;rchild-&gt;rchild-&gt;rchild = createNodeWithVal(10); Judge(rt1, rt2); printf("%d\n",flag);&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -93,7 +93,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-8%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758//这本书关于完全二叉树的定义和别的书不大一样啊#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node node;struct node&#123; int val,mark; node *lchild,*rchild;&#125;;#define MAXN 100node* createNodeWithVal(int val)&#123; node *rt = (node*)malloc(sizeof(node)); rt-&gt;lchild = rt-&gt;rchild = NULL; rt-&gt;val = val; rt-&gt;mark = 0; return rt;&#125;/* 4 2 61 3 5 7*/node* createTree()&#123; node *rt = createNodeWithVal(4); rt-&gt;lchild = createNodeWithVal(2); rt-&gt;rchild = createNodeWithVal(6); rt-&gt;lchild-&gt;lchild = createNodeWithVal(1); rt-&gt;lchild-&gt;rchild = createNodeWithVal(3); rt-&gt;rchild-&gt;lchild = createNodeWithVal(5); rt-&gt;rchild-&gt;rchild = createNodeWithVal(7); return rt;&#125;int flag = 0;void Judge(node *rt)&#123; if(rt == NULL) return; Judge(rt-&gt;lchild); Judge(rt-&gt;rchild); if((rt-&gt;lchild == NULL &amp;&amp; rt-&gt;rchild != NULL) || (rt-&gt;lchild != NULL &amp;&amp; rt-&gt;rchild == NULL)) &#123; flag = 1; return; &#125;&#125;int main()&#123; node *root = createTree(); Judge(root); printf("%d\n",flag); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -101,7 +101,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-7%2F</url>
     <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#define MAXN 100typedef struct node node;struct node&#123; int val; node *lchild,*rchild;&#125;;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;lchild = ret-&gt;rchild = NULL; ret-&gt;val = 0; return ret;&#125; // 0 1 2 3 4 5 6int post[MAXN] = &#123;1,3,2,5,7,6,4&#125;;int in[MAXN] = &#123;1,2,3,4,5,6,7&#125;; // 0 1 2 3 4 5 6node* createTree(int last, int l, int r)&#123; if(l &gt; r) return NULL; node *rt = createNode(); int axi = 0; for(int i = l; i &lt;= r; ++i) &#123; if(in[i] == post[last]); &#123; axi = i; break; &#125; &#125; rt-&gt;val = in[axi]; rt-&gt;lchild = createTree(last - (r-axi) - 1, l, axi-1); rt-&gt;rchild = createTree(last - 1, axi+1, r); return rt;&#125;void InOrder(node *rt)&#123; if(rt == NULL) return; InOrder(rt-&gt;lchild); printf("%d ",rt-&gt;val); InOrder(rt-&gt;rchild);&#125;int main()&#123; node* root = createTree(6, 0, 6); InOrder(root); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -109,7 +109,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-6%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657//根据前序和中序构造二叉树#include &lt;stdio.h&gt;#define MAXN 100typedef struct node node;struct node&#123; int val; node *lchild,*rchild;&#125;;node* createNode()&#123; node *ret = (node*)malloc(sizeof(node)); ret-&gt;lchild = ret-&gt;rchild = NULL; ret-&gt;val = 0; return ret;&#125; // 0 1 2 3 4 5 6int pre[MAXN] = &#123;4,2,1,3,6,5,7&#125;;int in[MAXN] = &#123;1,2,3,4,5,6,7&#125;; // 0 1 2 3 4 5 6node* createTree(int fst, int l, int r)&#123; if(l &gt; r) return NULL; node* rt = createNode(); int axi = 0; for(int i = l; i &lt;= r; ++i) &#123; if(in[i] == pre[fst]) &#123; axi = i; break; &#125; &#125; rt-&gt;val = pre[fst]; rt-&gt;lchild = createTree(fst+1, l, axi-1); rt-&gt;rchild = createTree(fst+axi-l+1, axi+1, r); return rt;&#125;void InOrder(node *rt)&#123; if(rt == NULL) return; InOrder(rt-&gt;lchild); printf("%d ",rt-&gt;val); InOrder(rt-&gt;rchild);&#125;int main()&#123; node *root = createTree(0, 0, 6); InOrder(root); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -117,7 +117,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-5%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117//有些东西参考了王道#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node node;struct node&#123; int val,mark; node *lchild,*rchild;&#125;;#define MAXN 100node* Stack[MAXN];int top;node *root = NULL;//这里不考虑栈满的情况void InitStack()&#123;top = 0;&#125;//初始化栈void Push(node *temp)&#123;Stack[top++] = temp;&#125;//入栈node* Pop()&#123;return Stack[--top];&#125;//返回栈顶元素，同时出栈node* Top()&#123;return Stack[top-1];&#125;//返回栈顶元素int IsEmpty()&#123;return top == 0;&#125;//判断是否为空void visit(node *rt)&#123;printf("%d ",rt-&gt;val);&#125;node* createNodeWithVal(int val)&#123; node *rt = (node*)malloc(sizeof(node)); rt-&gt;lchild = rt-&gt;rchild = NULL; rt-&gt;val = val; rt-&gt;mark = 0; return rt;&#125;/* 4 2 61 3 5 7 4 21 3 5 6*/node* createTree()&#123; node *rt = createNodeWithVal(4); rt-&gt;lchild = createNodeWithVal(2);// rt-&gt;rchild = createNodeWithVal(6); rt-&gt;lchild-&gt;lchild = createNodeWithVal(1); rt-&gt;lchild-&gt;rchild = createNodeWithVal(3); rt-&gt;lchild-&gt;lchild-&gt;rchild = createNodeWithVal(5); rt-&gt;lchild-&gt;lchild-&gt;rchild-&gt;rchild = createNodeWithVal(6);// rt-&gt;rchild-&gt;lchild = createNodeWithVal(5);// rt-&gt;rchild-&gt;rchild = createNodeWithVal(7); return rt;&#125;//二叉树的前序遍历就是原来树的前序遍历void PreOrder(node *rt)&#123; if(rt == NULL) return; printf("%d ",rt-&gt;val); PreOrder(rt-&gt;lchild); PreOrder(rt-&gt;rchild);&#125;//二叉树的中序遍历就是原来树的后续遍历void InOrder(node *rt)&#123; if(rt == NULL) return; InOrder(rt-&gt;lchild); printf("%d ",rt-&gt;val); InOrder(rt-&gt;rchild);&#125;//树转换为二叉树后，用的是兄弟孩子表示法//左孩子为真的孩子，右孩子为兄弟//所以如果对应二叉树中没有子节点或者没有左孩子节点//就是原来树中的叶子节点//综上，只要对应二叉树左孩子为空，就是叶子节点void PrintLeaf(node *rt)&#123; if(rt == NULL) return; if(rt-&gt;lchild == NULL) printf("%d ",rt-&gt;val); PrintLeaf(rt-&gt;lchild); PrintLeaf(rt-&gt;rchild);&#125;//flag=0表示为父节点的左孩子//flag=1表示为父节点的右孩子//不管了啊，对每个节点暴力找他的右孩子的长度即可int CalcDegree(node *rt)&#123; if(rt == NULL) return 0; node *temp = rt; int ret = 0; while(temp) &#123; temp = temp-&gt;rchild; ret++; &#125; int h1 = CalcDegree(rt-&gt;lchild); int h2 = CalcDegree(rt-&gt;rchild); int h = h1 &gt; h2 ? h1: h2; return ret &gt; h ? ret : h;&#125;int main()&#123; node *root = createTree(); PreOrder(root); puts(""); InOrder(root); puts(""); PrintLeaf(root); puts(""); int h = CalcDegree(root); printf("%d\n",h); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -125,7 +125,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-4%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node node;struct node&#123; int val,mark; node *lchild,*rchild;&#125;;#define MAXN 100node* Stack[MAXN];int top;node *root = NULL;//这里不考虑栈满的情况void InitStack()&#123;top = 0;&#125;//初始化栈void Push(node *temp)&#123;Stack[top++] = temp;&#125;//入栈node* Pop()&#123;return Stack[--top];&#125;//返回栈顶元素，同时出栈node* Top()&#123;return Stack[top-1];&#125;//返回栈顶元素int IsEmpty()&#123;return top == 0;&#125;//判断是否为空void visit(node *rt)&#123;printf("%d ",rt-&gt;val);&#125;node* createNodeWithVal(int val)&#123; node *rt = (node*)malloc(sizeof(node)); rt-&gt;lchild = rt-&gt;rchild = NULL; rt-&gt;val = val; rt-&gt;mark = 0; return rt;&#125;/* 4 2 61 3 5 7*/node* createTree()&#123; node *rt = createNodeWithVal(4); rt-&gt;lchild = createNodeWithVal(2); rt-&gt;rchild = createNodeWithVal(6); rt-&gt;lchild-&gt;lchild = createNodeWithVal(1); rt-&gt;lchild-&gt;rchild = createNodeWithVal(3); rt-&gt;rchild-&gt;lchild = createNodeWithVal(5); rt-&gt;rchild-&gt;rchild = createNodeWithVal(7); return rt;&#125;void PostOrder(node *rt)&#123; InitStack(); node *p = rt; node *r = NULL; while(p || !IsEmpty()) &#123; if(p != NULL) &#123; Push(p); p = p-&gt;lchild; &#125; else &#123; p = Top(); if(p-&gt;rchild != NULL &amp;&amp; p-&gt;rchild != r) &#123; p = p-&gt;rchild; Push(p); p = p-&gt;lchild; &#125; else &#123; p = Pop(); visit(p); r = p; p = NULL; &#125; &#125; &#125;&#125;int main()&#123; node *root = createTree(); PostOrder(root); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>
@@ -133,7 +133,7 @@
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%845-3%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;typedef struct node node;struct node&#123; int val,mark; node *lchild,*rchild;&#125;;#define MAXN 100node* Stack[MAXN];int top;node *root = NULL;//这里不考虑栈满的情况void InitStack()&#123;top = 0;&#125;//初始化栈void Push(node *temp)&#123;Stack[top++] = temp;&#125;//入栈node* Pop()&#123;return Stack[--top];&#125;//返回栈顶元素，同时出栈node* Top()&#123;return Stack[top-1];&#125;//返回栈顶元素int isEmpty()&#123;return top == 0;&#125;//判断是否为空void visit(node *rt)&#123;printf("%d ",rt-&gt;val);&#125;node* createNodeWithVal(int val)&#123; node *rt = (node*)malloc(sizeof(node)); rt-&gt;lchild = rt-&gt;rchild = NULL; rt-&gt;val = val; rt-&gt;mark = 0; return rt;&#125;node* createNode()&#123; node *rt = (node*)malloc(sizeof(node)); rt-&gt;lchild = rt-&gt;rchild = NULL; rt-&gt;val = rt-&gt;mark = 0; return rt;&#125;/* 4 2 61 3 5 7*/node* createTree()&#123; node *rt = createNodeWithVal(4); rt-&gt;lchild = createNodeWithVal(2); rt-&gt;rchild = createNodeWithVal(6); rt-&gt;lchild-&gt;lchild = createNodeWithVal(1); rt-&gt;lchild-&gt;rchild = createNodeWithVal(3); rt-&gt;rchild-&gt;lchild = createNodeWithVal(5); rt-&gt;rchild-&gt;rchild = createNodeWithVal(7); return rt;&#125;void inOrder(node *rt)&#123; if(rt == NULL) return; inOrder(rt-&gt;lchild); visit(rt); inOrder(rt-&gt;rchild);&#125;void ChangeChild(node *rt)&#123; if(rt == NULL) return; ChangeChild(rt-&gt;lchild); ChangeChild(rt-&gt;rchild); node *temp = rt-&gt;lchild; rt-&gt;lchild = rt-&gt;rchild; rt-&gt;rchild = temp;&#125;int main()&#123; node *root = createTree(); inOrder(root); puts(""); ChangeChild(root); inOrder(root); return 0;&#125;]]></content>
       <categories>
-        <category>数据结构第四章</category>
+        <category>蔡子经数据结构第五章</category>
       </categories>
   </entry>
   <entry>

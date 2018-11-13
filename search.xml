@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[简化printf]]></title>
+    <url>%2F2018%2F11%2F13%2F%E7%AE%80%E5%8C%96printf%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354#define SP 1#if SP#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;stdarg.h&gt;void minprintf(char *fmt, ...)&#123; va_list ap; int ival; double dval; char *p, *sval; va_start(ap, fmt); for(p = fmt; *p; ++p) &#123; if(*p != '%') &#123; putchar(*p); continue; &#125; switch(*++p) &#123; case 'd': ival = va_arg(ap, int); printf("%d",ival); break; case 'f': dval = va_arg(ap, double); printf("%f",dval); break; case 's': sval = va_arg(ap, char*); while(*sval) putchar(*sval++); break; default: putchar(*p); break; &#125; &#125; va_end(ap);&#125;int main()&#123; int a = 10; char* str = "12345"; printf("%f\n",0.5); minprintf("%d\n%s\n",a,str); return 0;&#125;#endif // SP]]></content>
+      <categories>
+        <category>K&amp;R 和 839 C</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[简化scanf]]></title>
+    <url>%2F2018%2F11%2F13%2F%E7%AE%80%E5%8C%96scanf%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#define MS 1#if MS#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;ctype.h&gt;#include &lt;stdarg.h&gt;#define LOCALFMT 100void minscanf(char *fmt, ...)&#123; va_list ap; int *ival,i = 0; double *dval; unsigned *uval; char *p, localFmt[LOCALFMT], *sval; va_start(ap, fmt); for(p = fmt; *p; ++p, i=0) &#123; if(*p != '%') &#123; localFmt[i++] = *p; continue; &#125; localFmt[i++] = '%'; while(*(p+1) &amp;&amp; !isalpha(*(p+1))) localFmt[i++] = *++p; localFmt[i++] = *(p+1); localFmt[i] = '\0'; switch(*++p) &#123; case 'd': case 'i': ival = va_arg(ap, int*); scanf(localFmt, ival); break; case 'x': case 'X': case 'o': case 'u': uval = va_arg(ap, unsigned*); scanf(localFmt, uval); break; case 'f': dval = va_arg(ap, double*); scanf(localFmt, dval); break; case 's': sval = va_arg(ap, char*); scanf(localFmt, sval); break; default: scanf(localFmt); break; &#125; &#125; va_end(ap);&#125;int main()&#123; char str[100]; scanf("%s",str); puts(str); return 0;&#125;#endif // MS]]></content>
+      <categories>
+        <category>K&amp;R 和 839 C</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[蔡子经数据结构7.14]]></title>
     <url>%2F2018%2F11%2F12%2F%E8%94%A1%E5%AD%90%E7%BB%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%847-14%2F</url>
     <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;stdlib.h&gt;#define MAXN 100typedef struct edge&#123; int u,v,cost;&#125; edge;int par[MAXN];int rank[MAXN];void init(int n)&#123; for(int i = 0; i &lt; n; ++i) &#123; par[i] = i; rank[i] = 0; &#125;&#125;int find(int x)&#123; if(par[x] == x) return x; else return par[x] = find(par[x]);&#125;void unite(int x, int y)&#123; x = find(x); y = find(y); if(x == y) return; if(rank[x] &lt; rank[y]) par[x] = y; else &#123; par[y] = x; if(rank[x] == rank[y]) rank[x]++; &#125;&#125;int same(int x, int y)&#123; return find(x) == find(y);&#125;int cmp(const void* a, const void* b)&#123; return ((edge*)a)-&gt;cost - ((edge*)b)-&gt;cost;&#125;edge es[MAXN];int V,E;//顶点个数和边的个数int kruskal()&#123; qsort(es, E, sizeof(edge), cmp); init(V); int res = 0; for(int i = 0; i &lt; E; ++i) &#123; edge e = es[i]; if(!same(e.u, e.v)) &#123; unite(e.u, e.v); res += e.cost; &#125; &#125; return res;&#125;int main()&#123; return 0;&#125;]]></content>

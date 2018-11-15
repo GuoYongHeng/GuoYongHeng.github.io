@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[归并排序]]></title>
+    <url>%2F2018%2F11%2F15%2F%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849#include &lt;stdio.h&gt;#define MAXN 50100int num[MAXN];int temp[MAXN];int n;void Merge(int l, int mid, int r)&#123; int rlen = 0; int i = l; int j = mid+1; while(i &lt;= mid &amp;&amp; j &lt;= r) &#123; if(num[i] &lt; num[j]) temp[rlen++] = num[i++]; else temp[rlen++] = num[j++]; &#125; while(i &lt;= mid) temp[rlen++] = num[i++]; while(j &lt;= r) temp[rlen++] = num[j++]; for(int i = 0; i &lt; rlen; ++i) num[l+i] = temp[i];&#125;void MergeSort(int l, int r)&#123; if(l &gt;= r) return; int mid = (l+r) &gt;&gt; 1; MergeSort(l,mid); MergeSort(mid+1,r); Merge(l,mid,r);&#125;int main()&#123; scanf("%d",&amp;n); for(int i = 0; i &lt; n; ++i) scanf("%d",&amp;num[i]); MergeSort(0,n-1); for(int i = 0; i &lt; n; ++i) printf("%d\n",num[i]); return 0;&#125;]]></content>
+      <categories>
+        <category>考研c和数据结构更</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[简化printf]]></title>
     <url>%2F2018%2F11%2F13%2F%E7%AE%80%E5%8C%96printf%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354#define SP 1#if SP#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;stdarg.h&gt;void minprintf(char *fmt, ...)&#123; va_list ap; int ival; double dval; char *p, *sval; va_start(ap, fmt); for(p = fmt; *p; ++p) &#123; if(*p != '%') &#123; putchar(*p); continue; &#125; switch(*++p) &#123; case 'd': ival = va_arg(ap, int); printf("%d",ival); break; case 'f': dval = va_arg(ap, double); printf("%f",dval); break; case 's': sval = va_arg(ap, char*); while(*sval) putchar(*sval++); break; default: putchar(*p); break; &#125; &#125; va_end(ap);&#125;int main()&#123; int a = 10; char* str = "12345"; printf("%f\n",0.5); minprintf("%d\n%s\n",a,str); return 0;&#125;#endif // SP]]></content>
       <categories>
-        <category>K&amp;R 和 839 C</category>
+        <category>考研c和数据结构更</category>
       </categories>
   </entry>
   <entry>
@@ -13,7 +21,7 @@
     <url>%2F2018%2F11%2F13%2F%E7%AE%80%E5%8C%96scanf%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#define MS 1#if MS#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;ctype.h&gt;#include &lt;stdarg.h&gt;#define LOCALFMT 100void minscanf(char *fmt, ...)&#123; va_list ap; int *ival,i = 0; double *dval; unsigned *uval; char *p, localFmt[LOCALFMT], *sval; va_start(ap, fmt); for(p = fmt; *p; ++p, i=0) &#123; if(*p != '%') &#123; localFmt[i++] = *p; continue; &#125; localFmt[i++] = '%'; while(*(p+1) &amp;&amp; !isalpha(*(p+1))) localFmt[i++] = *++p; localFmt[i++] = *(p+1); localFmt[i] = '\0'; switch(*++p) &#123; case 'd': case 'i': ival = va_arg(ap, int*); scanf(localFmt, ival); break; case 'x': case 'X': case 'o': case 'u': uval = va_arg(ap, unsigned*); scanf(localFmt, uval); break; case 'f': dval = va_arg(ap, double*); scanf(localFmt, dval); break; case 's': sval = va_arg(ap, char*); scanf(localFmt, sval); break; default: scanf(localFmt); break; &#125; &#125; va_end(ap);&#125;int main()&#123; char str[100]; scanf("%s",str); puts(str); return 0;&#125;#endif // MS]]></content>
       <categories>
-        <category>K&amp;R 和 839 C</category>
+        <category>考研c和数据结构更</category>
       </categories>
   </entry>
   <entry>
